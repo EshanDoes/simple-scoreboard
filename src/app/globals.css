@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-indigo-400);
+  --basecolor: var(--color-white);
+  --dark: var(--color-indigo-700);
+  --light: var(--color-indigo-500);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+h1{
+  color: var(--basecolor);
+  font-size: var(--text-4xl);
+  margin: 2px;
+}
+p{
+  color: var(--basecolor);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+button{
+  background-color: var(--dark);
+  padding: 2px;
+  margin: 2px;
+  border-radius: 8px;
+  transition-duration: 100ms;
+}
+button:hover{
+  background-color: var(--light);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+img {
+  width: 64px;
+  height: 64px;
+  filter:
+    drop-shadow(-2px 0px 0 var(--basecolor))
+    drop-shadow(2px 0px 0 var(--basecolor))
+    drop-shadow(0px 2px 0 var(--basecolor))
+    drop-shadow(0px -2px 0 var(--basecolor));
+}
+meter{
+  width: 96px;
+  height: 32px;
+  margin: 40px 16px;
+  filter:
+    drop-shadow(-2px 0px 0 var(--basecolor))
+    drop-shadow(2px 0px 0 var(--basecolor))
+    drop-shadow(0px 2px 0 var(--basecolor))
+    drop-shadow(0px -2px 0 var(--basecolor));
+}
+meter::-webkit-meter-bar{
+  background: none;
+  background-color: var(--light);
+}
+meter::-webkit-meter-optimum-value{
+  background: none;
+  background-color: var(--dark);
 }
